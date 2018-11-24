@@ -29,7 +29,7 @@ def get_fileIds(projectId, DateCreatedFrom, DateCreatedTo):
 def get_docIds(fileId):
     """ Returns a list of documentIds that belong to a list input of fileIds' """
     docIds = []
-    response = doc_request = requests.get('{}/api/files/{}/documents?guid={}'.format(site, fileId, guid)).json()
+    response = requests.get('{}/api/files/{}/documents?guid={}'.format(site, fileId, guid)).json()
 
     [docIds.append(doc['documentId']) for doc in response]
 
