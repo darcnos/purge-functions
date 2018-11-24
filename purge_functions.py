@@ -14,7 +14,6 @@ def login(site):
     return requests.post('{}/api/login'.format(site), creds).json()
 
 
-
 def get_fileIds(projectId, DateCreatedFrom, DateCreatedTo):
     """ Returns a list of fileIds based on the date-range search of their creation """
     fileIds = []
