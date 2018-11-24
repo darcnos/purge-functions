@@ -18,7 +18,7 @@ def login():
 
 
 def get_fileIds(DateCreatedFrom, DateCreatedTo):
-    """ Returns a list of fileIds based on the date-range search of their creation date """
+    """ Returns a list of fileIds based on the date-range search of their creation """
     fileIds = []
     response = requests.get('{}/api/files?filter=projectId_1,DateCreatedFrom_{},DateCreatedTo_{}&guid={}'.format(site, DateCreatedFrom, DateCreatedTo, guid)).json()
     print('Found {} Files!'.format(len(response)))
