@@ -4,7 +4,7 @@
 import requests, json
 jsonheaders = {'content-type': 'application/json'}
 
-def login():
+def login(site):
     """ Login to the site, return a GUID """
     creds = {
     'username': input('Username: '),
@@ -39,7 +39,7 @@ def get_docIds(fileId):
 # Main runtime
 if __name__ == '__main__':
     site = 'https://' + input('https://')
-    guid = login()
+    guid = login(site)
 
     # Iterate through the fileIds
     for file in get_fileIds('1', '11/01/2018', '11/05/2018'):
