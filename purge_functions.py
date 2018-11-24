@@ -46,6 +46,7 @@ if __name__ == '__main__':
     for file in get_fileIds('11/01/2018', '11/05/2018'):
         print('found FileID {}'.format(file))
 
+        # Iterate through docIds
         for doc in get_docIds(file):
             print('  deleting DocID {}'.format(doc))
             # Uncomment this to perform the deletion on the docId
