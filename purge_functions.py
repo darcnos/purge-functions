@@ -2,9 +2,7 @@
 #!/usr/bin/env python
 
 import requests, json
-
 jsonheaders = {'content-type': 'application/json'}
-site = 'https://' + input('https://')
 
 def login():
     """ Login to the site, return a GUID """
@@ -17,10 +15,10 @@ def login():
 
 
 
-def get_fileIds(DateCreatedFrom, DateCreatedTo):
+def get_fileIds(projectId, DateCreatedFrom, DateCreatedTo):
     """ Returns a list of fileIds based on the date-range search of their creation """
     fileIds = []
-    response = requests.get('{}/api/files?filter=projectId_1,DateCreatedFrom_{},DateCreatedTo_{}&guid={}'.format(site, DateCreatedFrom, DateCreatedTo, guid)).json()
+    response = requests.get('{}/api/files?filter=projectId_{},DateCreatedFrom_{},DateCreatedTo_{}&guid={}'.format(site, projectId DateCreatedFrom, DateCreatedTo, guid)).json()
     print('Found {} Files!'.format(len(response)))
     
     [fileIds.append(file['fileId']) for file in response]
@@ -40,10 +38,11 @@ def get_docIds(fileId):
 
 # Main runtime
 if __name__ == '__main__':
+    site = 'https://' + input('https://')
     guid = login()
 
     # Iterate through the fileIds
-    for file in get_fileIds('11/01/2018', '11/05/2018'):
+    for file in get_fileIds('1', '11/01/2018', '11/05/2018'):
         print('found FileID {}'.format(file))
 
         # Iterate through docIds
