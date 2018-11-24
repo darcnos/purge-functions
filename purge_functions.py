@@ -38,8 +38,6 @@ def get_docIds(fileId):
     return docIds
 
 
-
-
 # Main runtime
 if __name__ == '__main__':
     guid = login()
