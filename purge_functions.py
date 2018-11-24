@@ -45,7 +45,7 @@ if __name__ == '__main__':
         print('found FileID {}'.format(fileId))
 
         # Iterate through docIds
-        for docId in get_docIds(file):
+        for docId in get_docIds(fileId):
             print('  deleting DocID {}'.format(docId))
             # Uncomment this to perform the deletion on the docId
             #requests.delete('{}/api/documents/{}?guid={}'.format(site, doc, guid))
