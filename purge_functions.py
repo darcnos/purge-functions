@@ -20,7 +20,7 @@ def get_fileIds(projectId, DateCreatedFrom, DateCreatedTo):
     response = requests.get('{}/api/files?filter=projectId_{},DateCreatedFrom_{},DateCreatedTo_{}&guid={}'.format(site, projectId, DateCreatedFrom, DateCreatedTo, guid)).json()
     print('Found {} Files!'.format(len(response)))
     
-    [fileIds.append(file['fileId']) for file in response]
+    [fileIds.append(fileId['fileId']) for fileId in response]
 
     return fileIds
 
@@ -30,7 +30,7 @@ def get_docIds(fileId):
     docIds = []
     response = requests.get('{}/api/files/{}/documents?guid={}'.format(site, fileId, guid)).json()
 
-    [docIds.append(doc['documentId']) for doc in response]
+    [docIds.append(docId['documentId']) for docId in response]
 
     return docIds
 
@@ -41,11 +41,11 @@ if __name__ == '__main__':
     guid = login(site)
 
     # Iterate through the fileIds
-    for file in get_fileIds('1', '11/01/2018', '11/05/2018'):
-        print('found FileID {}'.format(file))
+    for fileId in get_fileIds('1', '11/01/2018', '11/05/2018'):
+        print('found FileID {}'.format(fileId))
 
         # Iterate through docIds
-        for doc in get_docIds(file):
-            print('  deleting DocID {}'.format(doc))
+        for docId in get_docIds(file):
+            print('  deleting DocID {}'.format(docId))
             # Uncomment this to perform the deletion on the docId
             #requests.delete('{}/api/documents/{}?guid={}'.format(site, doc, guid))
