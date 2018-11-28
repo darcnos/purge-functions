@@ -49,3 +49,4 @@ if __name__ == '__main__':
             print('  deleting DocID {}'.format(docId))
             # Uncomment this to perform the deletion on the docId
             #requests.delete('{}/api/documents/{}?guid={}'.format(site, doc, guid))
+
