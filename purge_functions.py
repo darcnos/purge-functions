@@ -40,7 +40,7 @@ if __name__ == '__main__':
     site = 'https://' + input('https://')
     guid = login(site)
 
-    # Iterate through the fileIds
+    # Iterate through the fileIds in ProjectId 1, created between the dates of 11/01/18 and 11/05/18
     for fileId in get_fileIds('1', '11/01/2018', '11/05/2018'):
         print('found FileID {}'.format(fileId))
 
